@@ -196,6 +196,9 @@ class IOHook extends EventEmitter {
    * @private
    */
   _handler(msg) {
+
+    if(msg === undefined) this.emit("accessibility-disabled");
+
     if (this.active === false || !msg) return;
 
     if (events[msg.type]) {
